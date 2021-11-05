@@ -1,0 +1,55 @@
+﻿@model List<ContatosViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPMG - CRUD Lista Telefônica</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/Controllers/ContatosController.cs" />
+    <link href="~/DAO/ContatosDAO.cs" />
+
+</head>
+<body>
+
+    <section class="container">
+        <h1>KPMG - CRUD Lista Telefônica</h1>
+        <div id="lista" style="display:block">
+            <div class="buttons">
+                <a href="/Contatos/Form">Inserir Novo Contato</a>
+            </div>
+            <table class="contatos_table">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                </tr>
+                @foreach (var f in Model)
+                {
+                    <tr>
+                        <td> <input id="Id" readonly value="@f.Id" /></td>
+                        <td> <input id="Nome" readonly value="@f.Nome" /></td>
+                        <td> <input id="Endereco" readonly value="@f.Endereco"></td>
+                        <td> <input id="Telefone" readonly value="@f.Telefone"></td>
+                        <td>
+                            <div class="buttons2">
+                                <a href="/contatos/Delete?id=@f.Id"><img src="~/lib/items/lixo.png" /></a>
+                                <a href="/contatos/Edit?id=@f.Id"><img src="~/lib/items/edit.png" /></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </section>
+</body>
+
+
+
+
+</html>

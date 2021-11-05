@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CrudListaTelefonica2</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/Controllers/ContatosController.cs" />
+    <link href="~/DAO/ContatosDAO.cs" />
+</head>
+<body>
+    <header>
+    </header>
+    <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function telinhaEdit() {
+            document.getElementById("lista").style.display = "none"
+            document.getElementById("inserir").style.display = "block"
+            document.getElementById("inputId").value = document.getElementById("Id").value
+            document.getElementById("inputNome").value = document.getElementById("Nome").value
+            document.getElementById("inputEndereco").value = document.getElementById("Endereco").value
+            document.getElementById("inputTelefone").value = document.getElementById("Telefone").value
+            document.getElementById("edicao").style.display = "block"
+            document.getElementById("create").style.display = "none"
+        }
+        function cancelar() {
+            document.getElementById("lista").style.display = "block"
+            document.getElementById("inserir").style.display = "none"
+            document.getElementById("inputId").value = ""
+            document.getElementById("inputNome").value = ""
+            document.getElementById("inputEndereco").value = ""
+            document.getElementById("inputTelefone").value = ""
+        }
+        function confirmar() {
+            if (document.getElementById("inputNome").value == "" || document.getElementById("inputEndereco").value == "" || document.getElementById("inputTelefone").value == "")
+                swal("Preencha os dados corretamente!");
+            else {
+                swal("Dados inseridos com sucesso!");
+                document.getElementById("lista").style.display = "block"
+                document.getElementById("inserir").style.display = "none"
+                document.getElementById("inputNome").value = ""
+                document.getElementById("inputEndereco").value = ""
+                document.getElementById("inputTelefone").value = ""
+            }
+        }
+        function id() {
+            document.getElementById("confirmar")+= id
+        }
+
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

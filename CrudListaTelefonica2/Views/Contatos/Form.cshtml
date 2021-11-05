@@ -1,0 +1,26 @@
+﻿@model ContatosViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <head>
+        <link rel="stylesheet" href="~/css/site.css" />
+        <title>KPMG - CRUD Lista Telefônica</title>
+    </head>
+    <div id="inserir" class="container">
+        <h1>KPMG - CRUD Lista Telefônica</h1>
+        Cadastro Telefônico
+        <form asp-controller="Contatos" asp-action="Create">
+            <input asp-for="Id" type="hidden" />
+            Nome
+            <input asp-for="Nome">
+            Endereço
+            <input asp-for="Endereco">
+            Telefone
+            <input asp-for="Telefone">
+            <div class="buttons">
+                <a href="/Contatos/index">Voltar</a>
+                <button>Confirmar</button>
+            </div>
+        </form>
+    </div>
+
